@@ -24,8 +24,6 @@
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 ```
 
-其中`Data Offset`为32个字节头部大小, 占用4bit,故TCP头最大为: (2^4 - 1) * 4 = 60字节
-
 ## TCP Three-Way HandShake Example
 
 ### How to to?
@@ -73,11 +71,33 @@ TCP Header:
 - Sequence Number: `7f56 2e0a`
 - Acknowledgment Number: `0000 0000`
 - Data Offset:`b`(11 * 4)
+- Reserved: 6bit
+- Flag: `02`(6bit, SYN = 1)
 - Window: `ffff`(65535)
 - Checksum: `6ed9`
 - Urgent Pointer: `0000` 
 - Options: `0204 05b4 0103 0306 0101 080a 6eed d861 0000 0000 0402 0000`
 
+
+TCP Options:
+
++------+--------+------+---------+--------------------------+
+| Kind | Length | Name | RFC     |   Description            |
++-----------------------------------------------------------+
+|  0   |   1    | EOL  | RFC 793 | End of Option List       |
++-----------------------------------------------------------+
+|  1   |   1    | NOP  | RFC 793 | No Option                |
++-----------------------------------------------------------+
+|  2   |   4    | MSS  | RFC 793 | Maximum Size Segment     |
++-----------------------------------------------------------+
+|  3   |   3    | WSOPT| RFC 1323| TCP Window Scale Option  |
++-----------------------------------------------------------+
+|  4   |   2    |      | RFC 2018| Sack Permitted Option    |
++-----------------------------------------------------------+
+|  5   |Variable| SACK | RFC 2018| SACK Option              |
++-----------------------------------------------------------+
+|  8   |   10   | TSPOT| RFC 1323| TCP Timestamps Option    |
++------+--------+-------------------------------------------+
 
 second packet:
 
@@ -89,7 +109,20 @@ second packet:
 	0x0030:  3908 6db4 0000 0204 05a4 0101 0402 0103
 	0x0040:  0309
 ```
-thirt packet:
+
+TCP:
+
+- Source Port: `0050`
+- Destination Port: `cc62`
+- Sequence Number: `d3fe 737f`
+- Acknowledgment Number: `7f56 2e0b`
+- Data Offset: 8(8 * 4 bytes)
+- Flag: 12(010010, SYN = 1, ACK = 1)
+- Window: 3908
+- Checksum: `6db4`
+- Urgent Pointer: `0000`
+- Options: `0204 05a4 0101 0402 0103 0309` 
+third packet:
 
 ```
 13:04:02.315226 IP 192.168.31.100.52322 > 42.121.252.58.http: Flags [.], ack 1, win 4096, length 0
@@ -105,4 +138,8 @@ TODO
 - Options解释
 - 抓包举例
 
-参考资料: [https://tools.ietf.org/html/rfc793#section-3.1](https://tools.ietf.org/html/rfc793#section-3.1)
+## 参考资料: 
+
+1. [https://tools.ietf.org/html/rfc793#section-3.1](https://tools.ietf.org/html/rfc793#section-3.1)
+2. [https://tools.ietf.org/html/rfc1323](https://tools.ietf.org/html/rfc1323)
+3. [https://tools.ietf.org/html/rfc2018](https://tools.ietf.org/html/rfc2018)
