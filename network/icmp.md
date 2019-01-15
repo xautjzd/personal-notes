@@ -45,13 +45,23 @@ $ping -M dont -s 1472 114.114.114.114
 - `-s` Specify the number of data bytes to be sent, default is 56,1472 + 8(ICMP Header) + 20(IP Header) = 1500(MTU  )
 - `-D` Set the Don't Fragment bit
 
-## ICMP Example
+## ICMP Analysis
+
+### Operation
 
 ```
 $ping -D -s 1472 114.114.114.114
 ```
 
-ICMP request:
+packet capture:
+
+```
+#tcpdump host 114.114.114.114 -x
+```
+
+### ICMP Request
+
+#### Request Example
 
 ```
 09:03:25.454198 IP 30.43.84.5 > public1.114dns.com: ICMP echo request, id 38790, seq 41, length 1480
@@ -152,7 +162,6 @@ ICMP request:
 	0x05e0:  b6b7 b8b9 babb bcbd bebf
 ```
 
-### ICMP Request
 
 #### MAC header:
 
@@ -177,7 +186,9 @@ ICMP request:
 - Identifier: 9786
 - Sequence Numer: 0029
 
-ICMP reply:
+### ICMP Response
+
+#### ICMP Response Example
 
 ```
 09:03:25.467441 IP public1.114dns.com > 30.43.84.5: ICMP echo reply, id 38790, seq 41, length 1480
@@ -277,7 +288,6 @@ ICMP reply:
 	0x05d0:  a6a7 a8a9 aaab acad aeaf b0b1 b2b3 b4b5
 	0x05e0:  b6b7 b8b9 babb bcbd bebf
 ```
-### ICMP Response
 
 #### MAC header
 
