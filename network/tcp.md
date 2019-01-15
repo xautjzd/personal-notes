@@ -24,6 +24,53 @@
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 ```
 
+- Source Port: `16` bits
+- Destination Port: `16` bits
+- Sequence Number: `32` bits
+- Acknowledgment Number: `32` bits
+- Data Offset: `4` bits. The number of 32 bit words in the TCP Header. Maximum header size is `60` bytes(2^4 - 1) * 4
+- Reserved: `6` bits. Reserved for future use. Must be zero
+- Flag: `6` bits.
+- Window: `16` bits. The number of bytes the sender will accept
+- Checksum: `16` bits
+- Urgent Pointer: `16` bits
+- Options: variable
+
+Options may occupy space at the end of the TCP header and are a
+multiple of 8 bits in length.  All options are included in the
+checksum.  An option may begin on any octet boundary.  There are two
+cases for the format of an option:
+
+   Case 1:  A single octet of option-kind.
+
+   Case 2:  An octet of option-kind, an octet of option-length, and
+            the actual option-data octets.
+
+The option-length counts the two octets of option-kind and
+option-length as well as the option-data octets.
+
+TCP Options:
+
+```
++------+--------+------+---------+--------------------------+
+| Kind | Length | Name | RFC     |   Description            |
++-----------------------------------------------------------+
+|  0   |   1    | EOL  | RFC 793 | End of Option List       |
++-----------------------------------------------------------+
+|  1   |   1    | NOP  | RFC 793 | No Option                |
++-----------------------------------------------------------+
+|  2   |   4    | MSS  | RFC 793 | Maximum Size Segment     |
++-----------------------------------------------------------+
+|  3   |   3    | WSOPT| RFC 1323| TCP Window Scale Option  |
++-----------------------------------------------------------+
+|  4   |   2    |      | RFC 2018| Sack Permitted Option    |
++-----------------------------------------------------------+
+|  5   |Variable| SACK | RFC 2018| SACK Option              |
++-----------------------------------------------------------+
+|  8   |   10   | TSPOT| RFC 1323| TCP Timestamps Option    |
++------+--------+-------------------------------------------+
+```
+
 ## TCP Three-Way HandShake Example
 
 ### How to to?
@@ -79,27 +126,6 @@ TCP Header:
 - Options: `0204 05b4 0103 0306 0101 080a 6eed d861 0000 0000 0402 0000`
 
 
-TCP Options:
-
-```
-+------+--------+------+---------+--------------------------+
-| Kind | Length | Name | RFC     |   Description            |
-+-----------------------------------------------------------+
-|  0   |   1    | EOL  | RFC 793 | End of Option List       |
-+-----------------------------------------------------------+
-|  1   |   1    | NOP  | RFC 793 | No Option                |
-+-----------------------------------------------------------+
-|  2   |   4    | MSS  | RFC 793 | Maximum Size Segment     |
-+-----------------------------------------------------------+
-|  3   |   3    | WSOPT| RFC 1323| TCP Window Scale Option  |
-+-----------------------------------------------------------+
-|  4   |   2    |      | RFC 2018| Sack Permitted Option    |
-+-----------------------------------------------------------+
-|  5   |Variable| SACK | RFC 2018| SACK Option              |
-+-----------------------------------------------------------+
-|  8   |   10   | TSPOT| RFC 1323| TCP Timestamps Option    |
-+------+--------+-------------------------------------------+
-```
 
 second packet:
 
