@@ -136,9 +136,7 @@ third packet:
 
 TODO
 
-- 标识符解释
 - Options解释
-- 抓包举例
 
 ## 参考资料: 
 
