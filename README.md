@@ -52,3 +52,8 @@ tcpdump常用参数:
 - [USENIX ATC](https://www.usenix.org/conference/atc19)
 - [SOSP](http://sosp.org/)
 - [OSDI](https://www.usenix.org/conference/osdi18)
+
+
+## 系统设计
+
+- [system design](https://github.com/donnemartin/system-design-primer)
