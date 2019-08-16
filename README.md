@@ -71,6 +71,13 @@ tcpdump常用参数:
 
 - [system design](https://github.com/donnemartin/system-design-primer)
 
+## 顶级会议
+
+- OSDI
+- SOSP
+- NSDI
+- ICDCS
+
 ## 其他
 
 - [http://www.cburch.com/cs/](http://www.cburch.com/cs/)
