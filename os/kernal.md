@@ -2,7 +2,7 @@
 
 ## TCP相关
 
-- `net.ipv4.tcp_timestamps`
+- `net.ipv4.tcp_timestamps`(NAT下开启会概率丢包)
 
 ### 缓冲区大小
 
