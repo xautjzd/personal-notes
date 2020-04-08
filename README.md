@@ -75,6 +75,7 @@ tcpdump常用参数:
 ## 系统设计
 
 - [system design](https://github.com/donnemartin/system-design-primer)
+- [programming principles](https://github.com/webpro/programming-principles)
 
 ## 顶级会议
 
