@@ -1,4 +1,18 @@
-# 系统设计
+# System Design
+
+## System architecture pattern
+
+### The Layered Architectural Pattern
+### The Microkernal Architectural Pattern
+### The CQRS Architectural Pattern
+### The Event Driven Architectural Pattern
+### The Microservices Architectural Pattern
+### The Client-server Architectural Pattern
+
+References:
+
+1. https://blog.ndepend.com/software-architecture-5-patterns-you-need-know/
+2. https://medium.com/ios-expert-series-or-interview-series/software-architectural-patterns-design-structures-c5692fe8affc
 
 ## 限流设计
 
@@ -30,10 +44,6 @@
 3. 服务调用降级: 降级前服务间通过 mq 通信，mq 消息堆积或 mq 宕机，降级为 http 调用
 
 
-## 重试设计
-
-## 事务补偿
-
 ## 异步通讯
 
 ### 为什么要选择异步通讯
@@ -55,3 +65,23 @@
 1. 业务流程实现相对复杂
 2. 事务处理相对复杂
 
+## 分布式锁
+
+1. [Redis Redlock](https://redis.io/topics/distlock)
+2. [How to do distributed locking](https://martin.kleppmann.com/2016/02/08/how-to-do-distributed-locking.html)
+3. [Is Redlock safe?](http://antirez.com/news/101)
+
+## 分布式事务
+
+### 刚性事务
+
+两阶段提交(2PC)
+
+### 柔性事务
+
+- BASE
+- 重试 & 幂等
+- 事务消息
+- 事务补偿(TCC)
+
+[浅谈事务和一致性：刚性or柔性](https://juejin.im/post/5aa8b8636fb9a028c67567c6#heading-18)
