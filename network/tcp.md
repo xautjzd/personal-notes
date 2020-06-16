@@ -160,6 +160,13 @@ third packet:
 	0x0030:  1000 d780 0000
 ```
 
+## TCP profiling
+
+### TCP Fast Open
+
+1. [introduction to tcp fast open](https://www.keycdn.com/support/tcp-fast-open)
+2. [introduction to tcp fast open(ppt)](https://www.ietf.org/proceedings/80/slides/tcpm-3.pdf)
+
 TODO
 
 - Options解释
