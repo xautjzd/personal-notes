@@ -23,3 +23,9 @@
 ```
 
 in host, run: `ip link show|grep 117`
+
+3. how to switch to container namespace in host?
+
+1. findout container pid: `docker inspect --format "{{.State.Pid}} <containerID>"`
+
+2. switch namespace to container: `nsenter --pid --mount --uts --ipc --net --user -t <pid>`
