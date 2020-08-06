@@ -167,6 +167,11 @@ third packet:
 1. [introduction to tcp fast open](https://www.keycdn.com/support/tcp-fast-open)
 2. [introduction to tcp fast open(ppt)](https://www.ietf.org/proceedings/80/slides/tcpm-3.pdf)
 
+## TCP keepalive
+
+1. [https://tldp.org/HOWTO/TCP-Keepalive-HOWTO/overview.html](https://tldp.org/HOWTO/TCP-Keepalive-HOWTO/overview.html)
+2. [https://stackoverflow.com/questions/1480236/does-a-tcp-socket-connection-have-a-keep-alive](https://stackoverflow.com/questions/1480236/does-a-tcp-socket-connection-have-a-keep-alive)
+
 TODO
 
 - Options解释
