@@ -167,6 +167,13 @@ third packet:
 1. [introduction to tcp fast open](https://www.keycdn.com/support/tcp-fast-open)
 2. [introduction to tcp fast open(ppt)](https://www.ietf.org/proceedings/80/slides/tcpm-3.pdf)
 
+### TCP deplayed acknowledgement
+
+同时开启 nagle 算法 & TCP 延时确认时有问题
+
+1. [TCP delayed acknowledgment](https://en.wikipedia.org/wiki/TCP_delayed_acknowledgment)
+2. [Nagle's algorithm](https://en.wikipedia.org/wiki/Nagle%27s_algorithm)
+
 ## TCP keepalive
 
 1. [https://tldp.org/HOWTO/TCP-Keepalive-HOWTO/overview.html](https://tldp.org/HOWTO/TCP-Keepalive-HOWTO/overview.html)
