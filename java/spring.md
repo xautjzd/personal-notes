@@ -1,6 +1,12 @@
 # Spring
 
-容器初始化流程，参考: `AbstractApplicationContext`
+容器初始化流程
+
+- AbstractApplicationContext
+- SpringBootServletInitializer(类似web.xml)
+- ServletContainerInitializer(实现类: ServletContainerInitializer): 加载SpringBootServletInitializer
+- DispatcherServlet
+- ClassPathBeanDefinitionScanner(@Service, @Controller 等注解扫描)
 
 ## Spring 扩展点
 
